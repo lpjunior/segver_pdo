@@ -13,10 +13,8 @@ function create($cidade)
         $stmt->bindParam(":nome", $cidade->nome);
 
         if ($stmt->execute())
-            // echo "Cidade cadastrada com sucesso";
             return true;
     } catch (PDOException $error) {
-        // echo "Erro ao cadastrar a cidade. Erro: {$error->getMessage()}";
         return false;
     } finally {
         unset($con);
@@ -52,12 +50,7 @@ function find($nome)
         $con = getConnection();
 
         $stmt = $con->prepare("SELECT nome_cidade, sigla_uf FROM cidade WHERE nome_cidade LIKE :nome");
-        # o bindParam recebe os parâmetros por referência, não é possível usar literais.
-        # para literais usa-se bindValue
         $stmt->bindValue(":nome", "%{$nome}%");
-
-        # https://www.php.net/manual/en/pdostatement.debugdumpparams
-        // $stmt->debugDumpParams();
 
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
@@ -112,10 +105,8 @@ function update($cidade)
         $stmt->bindParam(":uf", $cidade->uf);
 
         if ($stmt->execute())
-            // echo "Cidade atualizada com sucesso";
             return true;
     } catch (PDOException $error) {
-        // echo "Erro ao atualizar a cidade. Erro: {$error->getMessage()}";
         return false;
     } finally {
         unset($con);
@@ -132,10 +123,8 @@ function delete($codigo)
         $stmt->bindParam(1, $codigo);
 
         if ($stmt->execute())
-            // echo "Cidade deleta com sucesso";
             return true;
     } catch (PDOException $error) {
-        // echo "Erro ao deletar a cidade. Erro: {$error->getMessage()}";
         return false;
     } finally {
         unset($con);
