@@ -19,9 +19,9 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" name="nome" type="search" placeholder="Informe o produto" aria-label="Search">
-                <button class="btn btn-outline-success" formaction="./vitrine.php" type="submit">Localizar</button>
+            <form action="./cidade.search.php" method="get" class="d-flex">
+                <input class="form-control me-2" name="txtCidade" type="search" placeholder="Informe a cidade" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Localizar</button>
             </form>
         </div>
     </div>

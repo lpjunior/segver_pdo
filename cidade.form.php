@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['logado'])) {
+        header('location: login.php?msg=access-deny');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

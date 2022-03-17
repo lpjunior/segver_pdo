@@ -49,7 +49,7 @@ function find($nome)
     try {
         $con = getConnection();
 
-        $stmt = $con->prepare("SELECT nome_cidade, sigla_uf FROM cidade WHERE nome_cidade LIKE :nome");
+        $stmt = $con->prepare("SELECT cod_cidade, nome_cidade, sigla_uf FROM cidade WHERE nome_cidade LIKE :nome");
         $stmt->bindValue(":nome", "%{$nome}%");
 
         if ($stmt->execute()) {
